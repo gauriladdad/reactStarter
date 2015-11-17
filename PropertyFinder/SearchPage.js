@@ -136,24 +136,22 @@ class SearchPage extends Component {
 
 				<Text style={styles.description}>{this.state.message}</Text>	
 			</View>
-
-					
 		);
 	}
 
 	onLocationPressed() {
-  navigator.geolocation.getCurrentPosition(
-    location => {
-      var search = location.coords.latitude + ',' + location.coords.longitude;
-      this.setState({ searchString: search });
-      var query = urlForQueryAndPage('centre_point', search, 1);
-      this._executeQuery(query);
-    },
-    error => {
-      this.setState({
-        message: 'There was a problem with obtaining your location: ' + error
-      });
-    });
+		navigator.geolocation.getCurrentPosition(
+		    location => {
+		      var search = location.coords.latitude + ',' + location.coords.longitude;
+		      this.setState({ searchString: search });
+		      var query = urlForQueryAndPage('centre_point', search, 1);
+		      this._executeQuery(query);
+		    },
+		    error => {
+		      this.setState({
+		        message: 'There was a problem with obtaining your location: ' + error
+		    });
+		});
 	}
 
 	onSearchTextChanged(event) {
@@ -161,18 +159,19 @@ class SearchPage extends Component {
 	}
 
 	_handleResponse(response) {
-	this.setState({ isLoading: false, message: ''});
-	if(response.application_response_code.substr(0, 1) === '1') {
-		this.props.navigator.push({
-			title: 'Results',
-			component: searchResults,
-			passProps: {listings: response.listings}
-		});
+		this.setState({ isLoading: false, message: ''});
+		if(response.application_response_code.substr(0, 1) === '1') {
+			this.props.navigator.push({
+				title: 'Results',
+				component: searchResults,
+				passProps: {listings: response.listings}
+			});
+		}
+		else {
+			this.setState({ message: 'Location not recognized, please try again'});
+		}
 	}
-	else {
-		this.setState({ message: 'Location not recognized, please try again'});
-	}
-}
+
 	_executeQuery(query) {
 		console.log(query);
 		this.setState({isLoading: true});
@@ -191,7 +190,5 @@ class SearchPage extends Component {
 		this._executeQuery(query);
 	}
 }
-
-
 
 module.exports = SearchPage;
