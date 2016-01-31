@@ -1,9 +1,12 @@
 # reactStarter
-learning react native
+==============Project description==============
 
-tested on Iphone 6s Plus 9.0
+This is a search application for rent properties. It fetches the data using: http://api.nestoria.co.uk/
 
-TO DO:
-Note: Nestoria has a number of non-1** response codes that are potentially useful. For example, 202 and 200 return a list of best-guess locations. When you’ve finished building your app, why not try handling these and present a list of options to the user?
+The search result is displayed in a list with an image and brief description of various matching properties.
+Upon further clicking on a property a more detailed page is displayed.
 
-Scrolling on search result : On the simulator your scroll by clicking and dragging the mouse.
+==============Test==============
+I have used XCode to test this application.
+
+A default custom location is also defined using XCode.
