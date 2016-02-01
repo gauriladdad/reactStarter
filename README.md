@@ -10,7 +10,7 @@ Upon further clicking on a property a more detailed page is displayed.
 1. React-native
 2. Xcode
 3. Sublime editor
-4. Github repository
+4. SourceTree
 
 ### Device Support
 
