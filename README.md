@@ -7,10 +7,10 @@ Upon further clicking on a property a more detailed page is displayed.
 
 ### Tools used
 
-React-native
-Xcode
-Sublime editor
-Github repository
+1. React-native
+2. Xcode
+3. Sublime editor
+4. Github repository
 
 ### Device Support
 
